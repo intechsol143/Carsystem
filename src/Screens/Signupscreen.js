@@ -76,14 +76,10 @@ const Signupscreen = ({ navigation }) => {
             try {
                 const result = await auth().createUserWithEmailAndPassword(data.email, data.password)
                 setdata({ ...data, loader: false })
-
                 firestore().collection('users').doc(auth().currentUser.uid).set({
                     firstname: data.firstname,
                     email: result.user.email,
                     uid: result.user.uid,
-
-                    //   pic:image,
-                    //   status:"online"
                 })
                 //   setLoading(false)
             } catch (error) {

@@ -28,7 +28,6 @@ const Loginscreen = ({ navigation }) => {
                 const result = await auth().signInWithEmailAndPassword(data.email, data.password)
                 if (result) {
                     setdata({ ...data, loading: false })
-
                 }
             } catch (error) {
                 console.log("errr", error.Error)
@@ -37,8 +36,6 @@ const Loginscreen = ({ navigation }) => {
                     setdata({ ...data, loader: false })
                     setdataErr({ ...dataErr, invalidErr: 'asd' })
 
-                    // setdataErr({ ...dataErr, emailinuse: "That email address is already in use!" })
-                    // console.log('That email address is already in use!');
                 }
 
                 if (error.code === 'auth/invalid-email') {
@@ -46,8 +43,7 @@ const Loginscreen = ({ navigation }) => {
 
                     console.log('That email address is invalid!');
                 }
-                // setdataErr({ ...dataErr, invalidErr: 'asd' })
-                // alert("something went wrong")
+
             }
         }
 
